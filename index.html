@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LuxAnalytica AI | Premium Data Analysis</title>
+    <title>LuxAnalytica | Heritage Intelligence</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
         
         * {
             margin: 0;
@@ -14,48 +14,53 @@
         }
 
         :root {
-            --black: #000000;
-            --white: #ffffff;
-            --gray-light: #f5f5f5;
-            --gray-medium: #888888;
-            --gray-dark: #1a1a1a;
-            --accent: #c9a962;
-            --accent-light: #e8d5a3;
+            --cream: #f5f5dc;
+            --cream-dark: #e8e4d0;
+            --forest: #2d5016;
+            --forest-light: #3d6b1e;
+            --burgundy: #722f37;
+            --burgundy-light: #8b3a44;
+            --navy: #1e3a5f;
+            --navy-light: #2a4a73;
+            --tan: #c9a962;
+            --brown: #3d2914;
+            --brown-light: #5a3d1f;
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background: var(--white);
-            color: var(--black);
-            line-height: 1.6;
-            overflow-x: hidden;
+            font-family: 'Cormorant Garamond', serif;
+            background: var(--cream);
+            color: var(--brown);
+            line-height: 1.7;
+            font-size: 18px;
         }
 
-        /* Luxury Navigation */
+        /* Heritage Navigation */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.5rem 8%;
+            padding: 2rem 10%;
+            background: var(--cream);
+            border-bottom: 1px solid var(--tan);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         }
 
         .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--black);
-            letter-spacing: -0.5px;
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1.6rem;
+            color: var(--forest);
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
         .logo span {
-            color: var(--accent);
+            color: var(--burgundy);
+            font-style: italic;
+            text-transform: none;
         }
 
         .nav-links {
@@ -65,29 +70,24 @@
         }
 
         .nav-links a {
-            color: var(--gray-medium);
+            color: var(--brown);
             text-decoration: none;
             font-size: 0.9rem;
-            font-weight: 500;
-            letter-spacing: 0.5px;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
-            transition: color 0.3s;
             position: relative;
+            padding-bottom: 5px;
         }
 
         .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: -5px;
+            bottom: 0;
             left: 0;
             width: 0;
             height: 1px;
-            background: var(--accent);
-            transition: width 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--black);
+            background: var(--forest);
+            transition: width 0.4s;
         }
 
         .nav-links a:hover::after {
@@ -95,31 +95,29 @@
         }
 
         .nav-cta {
-            background: var(--black);
-            color: var(--white);
-            padding: 0.8rem 1.8rem;
-            border-radius: 0;
+            background: var(--forest);
+            color: var(--cream);
+            padding: 0.9rem 2rem;
             text-decoration: none;
-            font-size: 0.8rem;
-            font-weight: 600;
-            letter-spacing: 1px;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            transition: all 0.3s;
-            border: 2px solid var(--black);
+            border: 2px solid var(--forest);
+            transition: all 0.4s;
         }
 
         .nav-cta:hover {
             background: transparent;
-            color: var(--black);
+            color: var(--forest);
         }
 
-        /* Luxury Hero */
+        /* Heritage Hero */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
-            padding: 10rem 8% 6rem;
-            background: linear-gradient(135deg, var(--white) 0%, var(--gray-light) 100%);
+            padding: 10rem 10% 6rem;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--cream-dark) 100%);
             position: relative;
         }
 
@@ -128,142 +126,174 @@
             position: absolute;
             top: 0;
             right: 0;
-            width: 50%;
+            width: 45%;
             height: 100%;
-            background: var(--black);
-            clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%);
+            background: var(--forest);
+            opacity: 0.95;
         }
 
         .hero-content {
-            max-width: 600px;
+            max-width: 550px;
             position: relative;
             z-index: 1;
         }
 
+        .hero-crest {
+            width: 80px;
+            height: 80px;
+            border: 2px solid var(--tan);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            color: var(--forest);
+        }
+
         .hero-label {
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 3px;
+            font-size: 0.8rem;
+            letter-spacing: 4px;
             text-transform: uppercase;
-            color: var(--accent);
+            color: var(--burgundy);
             margin-bottom: 1.5rem;
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 1.5rem;
         }
 
         .hero-label::before {
             content: '';
-            width: 40px;
+            width: 60px;
             height: 1px;
-            background: var(--accent);
+            background: var(--tan);
         }
 
         .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 4.5rem;
-            font-weight: 700;
-            line-height: 1.1;
+            font-family: 'Libre Baskerville', serif;
+            font-size: 3.5rem;
+            font-weight: 400;
+            line-height: 1.2;
             margin-bottom: 1.5rem;
-            color: var(--black);
+            color: var(--navy);
+            font-style: italic;
+        }
+
+        .hero h1 span {
+            font-style: normal;
+            color: var(--forest);
         }
 
         .hero p {
             font-size: 1.1rem;
-            color: var(--gray-medium);
+            color: var(--brown-light);
             margin-bottom: 2.5rem;
             line-height: 1.8;
-            max-width: 500px;
+            max-width: 480px;
         }
 
         .hero-buttons {
             display: flex;
-            gap: 1.5rem;
+            gap: 2rem;
             align-items: center;
         }
 
         .btn-primary {
-            background: var(--black);
-            color: var(--white);
-            padding: 1.2rem 2.5rem;
+            background: var(--forest);
+            color: var(--cream);
+            padding: 1.1rem 2.5rem;
             text-decoration: none;
-            font-size: 0.8rem;
-            font-weight: 600;
-            letter-spacing: 1.5px;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
             text-transform: uppercase;
+            border: 2px solid var(--forest);
             transition: all 0.4s;
-            border: 2px solid var(--black);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-primary::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: var(--accent);
-            transition: left 0.4s;
-            z-index: -1;
-        }
-
-        .btn-primary:hover::before {
-            left: 0;
         }
 
         .btn-primary:hover {
-            border-color: var(--accent);
+            background: var(--burgundy);
+            border-color: var(--burgundy);
         }
 
         .btn-text {
-            color: var(--black);
+            color: var(--brown);
             text-decoration: none;
             font-size: 0.85rem;
-            font-weight: 500;
+            letter-spacing: 1px;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.8rem;
             transition: gap 0.3s;
+            font-style: italic;
         }
 
         .btn-text:hover {
-            gap: 1rem;
+            gap: 1.2rem;
+            color: var(--forest);
         }
 
-        /* Stats Bar */
+        /* Heritage Stats */
         .stats-bar {
-            background: var(--black);
-            padding: 3rem 8%;
+            background: var(--navy);
+            padding: 4rem 10%;
             display: flex;
             justify-content: space-around;
             align-items: center;
+            border-top: 3px solid var(--tan);
+            border-bottom: 3px solid var(--tan);
         }
 
         .stat-item {
             text-align: center;
+            position: relative;
+        }
+
+        .stat-item:not(:last-child)::after {
+            content: '•';
+            position: absolute;
+            right: -50%;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--tan);
+            font-size: 1.5rem;
         }
 
         .stat-number {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            color: var(--accent);
-            font-weight: 700;
+            font-family: 'Libre Baskerville', serif;
+            font-size: 2.5rem;
+            color: var(--cream);
+            font-weight: 400;
         }
 
         .stat-label {
-            font-size: 0.75rem;
-            color: var(--gray-medium);
+            font-size: 0.7rem;
+            color: var(--tan);
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             margin-top: 0.5rem;
         }
 
-        /* Upload Section */
+        /* Heritage Upload Section */
         .upload-section {
-            padding: 8rem 8%;
-            background: var(--white);
+            padding: 8rem 10%;
+            background: var(--cream);
+            position: relative;
+        }
+
+        .upload-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: repeating-linear-gradient(
+                90deg,
+                var(--tan) 0px,
+                var(--tan) 10px,
+                transparent 10px,
+                transparent 20px
+            );
         }
 
         .section-header {
@@ -273,83 +303,98 @@
 
         .section-label {
             font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 3px;
+            letter-spacing: 4px;
             text-transform: uppercase;
-            color: var(--accent);
+            color: var(--burgundy);
             margin-bottom: 1rem;
+            display: block;
         }
 
         .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--black);
+            font-family: 'Libre Baskerville', serif;
+            font-size: 2.8rem;
+            font-weight: 400;
+            color: var(--navy);
+            font-style: italic;
         }
 
         .upload-container {
-            max-width: 700px;
+            max-width: 650px;
             margin: 0 auto;
-            background: var(--gray-light);
+            background: var(--cream-dark);
             padding: 4rem;
-            border: 1px solid rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--tan);
+            position: relative;
+        }
+
+        .upload-container::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            border: 1px solid var(--tan);
+            pointer-events: none;
         }
 
         .form-group {
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
+            position: relative;
+            z-index: 1;
         }
 
         .form-group label {
             display: block;
             margin-bottom: 0.8rem;
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 1.5px;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            color: var(--gray-medium);
+            color: var(--brown-light);
         }
 
         .form-group select,
         .form-group input[type="email"] {
             width: 100%;
-            padding: 1.2rem;
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            background: var(--white);
-            color: var(--black);
+            padding: 1rem 1.2rem;
+            border: 1px solid var(--tan);
+            background: var(--cream);
+            color: var(--brown);
             font-size: 1rem;
-            font-family: 'Inter', sans-serif;
-            transition: border-color 0.3s;
+            font-family: 'Cormorant Garamond', serif;
+            transition: all 0.3s;
         }
 
         .form-group select:focus,
         .form-group input:focus {
             outline: none;
-            border-color: var(--accent);
+            border-color: var(--forest);
         }
 
         .file-upload {
-            border: 2px dashed rgba(0, 0, 0, 0.2);
+            border: 2px dashed var(--tan);
             padding: 3rem;
             text-align: center;
             cursor: pointer;
             transition: all 0.3s;
-            background: var(--white);
+            background: var(--cream);
         }
 
         .file-upload:hover {
-            border-color: var(--accent);
-            background: rgba(201, 169, 98, 0.05);
+            border-color: var(--forest);
+            background: rgba(45, 80, 22, 0.05);
         }
 
         .file-upload-icon {
-            font-size: 3rem;
+            font-size: 2.5rem;
             margin-bottom: 1rem;
-            color: var(--accent);
+            color: var(--forest);
         }
 
         .file-upload-text {
-            color: var(--gray-medium);
-            font-size: 0.9rem;
+            color: var(--brown-light);
+            font-size: 1rem;
+            font-style: italic;
         }
 
         .file-upload input {
@@ -358,81 +403,100 @@
 
         .submit-btn {
             width: 100%;
-            background: var(--black);
-            color: var(--white);
-            padding: 1.3rem;
+            background: var(--forest);
+            color: var(--cream);
+            padding: 1.2rem;
             border: none;
-            font-size: 0.8rem;
-            font-weight: 600;
-            letter-spacing: 2px;
+            font-size: 0.75rem;
+            letter-spacing: 3px;
             text-transform: uppercase;
             cursor: pointer;
             transition: all 0.4s;
-            margin-top: 1rem;
+            position: relative;
+            z-index: 1;
         }
 
         .submit-btn:hover {
-            background: var(--accent);
+            background: var(--burgundy);
         }
 
-        /* Features Section */
+        /* Heritage Features */
         .features {
-            padding: 8rem 8%;
-            background: var(--gray-light);
+            padding: 8rem 10%;
+            background: var(--cream-dark);
+            border-top: 1px solid var(--tan);
         }
 
         .features-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
+            gap: 0;
             max-width: 1200px;
             margin: 0 auto;
+            border: 1px solid var(--tan);
         }
 
         .feature-card {
-            background: var(--white);
-            padding: 3rem 2rem;
+            background: var(--cream);
+            padding: 3.5rem 2.5rem;
             text-align: center;
-            border: 1px solid rgba(0, 0, 0, 0.05);
+            border-right: 1px solid var(--tan);
             transition: all 0.4s;
         }
 
+        .feature-card:last-child {
+            border-right: none;
+        }
+
         .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            background: var(--cream-dark);
         }
 
         .feature-number {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            color: var(--accent);
-            opacity: 0.3;
-            font-weight: 700;
+            font-family: 'Libre Baskerville', serif;
+            font-size: 3.5rem;
+            color: var(--forest);
+            opacity: 0.2;
+            font-weight: 400;
             margin-bottom: 1rem;
         }
 
         .feature-card h3 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Libre Baskerville', serif;
             font-size: 1.3rem;
             margin-bottom: 1rem;
-            color: var(--black);
+            color: var(--navy);
+            font-weight: 400;
         }
 
         .feature-card p {
-            font-size: 0.9rem;
-            color: var(--gray-medium);
+            font-size: 0.95rem;
+            color: var(--brown-light);
             line-height: 1.7;
         }
 
-        /* Agents Section */
+        /* Heritage Agents */
         .agents {
-            padding: 8rem 8%;
-            background: var(--black);
-            color: var(--white);
+            padding: 8rem 10%;
+            background: var(--navy);
+            color: var(--cream);
+            position: relative;
+        }
+
+        .agents::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+            border: 1px solid var(--tan);
+            opacity: 0.3;
+            pointer-events: none;
         }
 
         .agents .section-title {
-            color: var(--white);
+            color: var(--cream);
         }
 
         .agents-grid {
@@ -441,70 +505,94 @@
             gap: 1.5rem;
             max-width: 1200px;
             margin: 0 auto;
+            position: relative;
+            z-index: 1;
         }
 
         .agent-card {
-            background: rgba(255, 255, 255, 0.03);
-            padding: 2.5rem 1.5rem;
+            background: rgba(245, 245, 220, 0.05);
+            padding: 2.5rem 1rem;
             text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(201, 169, 98, 0.3);
             transition: all 0.4s;
         }
 
         .agent-card:hover {
             background: rgba(201, 169, 98, 0.1);
-            border-color: var(--accent);
+            border-color: var(--tan);
         }
 
         .agent-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--accent);
+            width: 50px;
+            height: 50px;
+            border: 1px solid var(--tan);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 1.5rem;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
+            color: var(--tan);
         }
 
         .agent-card h4 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.2rem;
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1.1rem;
             margin-bottom: 0.5rem;
-            color: var(--white);
+            color: var(--cream);
+            font-weight: 400;
         }
 
         .agent-card p {
-            font-size: 0.8rem;
-            color: var(--gray-medium);
+            font-size: 0.75rem;
+            color: var(--tan);
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
         }
 
-        /* Footer */
+        /* Heritage Footer */
         footer {
-            background: var(--white);
-            padding: 4rem 8%;
+            background: var(--brown);
+            padding: 5rem 10%;
             text-align: center;
-            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            border-top: 3px solid var(--tan);
+        }
+
+        .footer-crest {
+            width: 60px;
+            height: 60px;
+            border: 2px solid var(--tan);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            font-size: 1.5rem;
+            color: var(--cream);
         }
 
         .footer-logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1.8rem;
+            color: var(--cream);
             margin-bottom: 1rem;
+            letter-spacing: 2px;
         }
 
         footer p {
-            color: var(--gray-medium);
-            font-size: 0.9rem;
+            color: var(--tan);
+            font-size: 0.85rem;
+            letter-spacing: 1px;
         }
 
         /* Responsive */
         @media (max-width: 1024px) {
             .features-grid {
                 grid-template-columns: repeat(2, 1fr);
+            }
+            .feature-card {
+                border-right: none;
+                border-bottom: 1px solid var(--tan);
             }
             .agents-grid {
                 grid-template-columns: repeat(3, 1fr);
@@ -513,7 +601,7 @@
 
         @media (max-width: 768px) {
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
             }
             .hero::before {
                 display: none;
@@ -526,6 +614,9 @@
                 flex-direction: column;
                 gap: 2rem;
             }
+            .stat-item:not(:last-child)::after {
+                display: none;
+            }
             .nav-links {
                 display: none;
             }
@@ -536,7 +627,8 @@
             display: none;
             text-align: center;
             padding: 2rem;
-            color: var(--accent);
+            color: var(--forest);
+            font-style: italic;
         }
 
         .loading.show {
@@ -545,15 +637,23 @@
 
         .result-box {
             display: none;
-            background: rgba(201, 169, 98, 0.1);
-            border: 1px solid var(--accent);
+            background: rgba(45, 80, 22, 0.1);
+            border: 1px solid var(--forest);
             padding: 2rem;
             margin-top: 2rem;
             text-align: center;
+            position: relative;
+            z-index: 1;
         }
 
         .result-box.show {
             display: block;
+        }
+
+        .result-box h3 {
+            font-family: 'Libre Baskerville', serif;
+            color: var(--forest);
+            margin-bottom: 0.5rem;
         }
     </style>
 </head>
@@ -570,77 +670,78 @@
 
     <section class="hero">
         <div class="hero-content">
-            <div class="hero-label">Premium AI Analytics</div>
-            <h1>Intelligence That Never Sleeps</h1>
-            <p>Six elite AI agents working in harmony to transform your raw data into actionable insights. Experience the future of analysis.</p>
+            <div class="hero-crest">⚜</div>
+            <div class="hero-label">Est. 2026 • Heritage Intelligence</div>
+            <h1>Intelligence of <span>Distinction</span></h1>
+            <p>For generations, knowledge has been the currency of success. Our six specialist agents continue this tradition, delivering analysis worthy of your legacy.</p>
             <div class="hero-buttons">
                 <a href="#analyze" class="btn-primary">Begin Analysis</a>
-                <a href="#features" class="btn-text">Explore Features →</a>
+                <a href="#features" class="btn-text">Discover Our Methods →</a>
             </div>
         </div>
     </section>
 
     <div class="stats-bar">
         <div class="stat-item">
-            <div class="stat-number">6</div>
-            <div class="stat-label">AI Agents</div>
+            <div class="stat-number">VI</div>
+            <div class="stat-label">Specialist Agents</div>
         </div>
         <div class="stat-item">
-            <div class="stat-number">24/7</div>
+            <div class="stat-number">∞</div>
             <div class="stat-label">Availability</div>
         </div>
         <div class="stat-item">
-            <div class="stat-number">100%</div>
-            <div class="stat-label">Accuracy</div>
+            <div class="stat-number">MMXXVI</div>
+            <div class="stat-label">Established</div>
         </div>
         <div class="stat-item">
-            <div class="stat-number">0s</div>
-            <div class="stat-label">Downtime</div>
+            <div class="stat-number">0</div>
+            <div class="stat-label">Compromise</div>
         </div>
     </div>
 
     <section class="upload-section" id="analyze">
         <div class="section-header">
-            <div class="section-label">Start Now</div>
-            <h2 class="section-title">Upload Your Dataset</h2>
+            <span class="section-label">The Process</span>
+            <h2 class="section-title">Commission Your Analysis</h2>
         </div>
         <div class="upload-container">
             <form id="analysisForm">
                 <div class="form-group">
                     <label>Select Your Specialist</label>
                     <select id="agentSelect" required>
-                        <option value="">Choose an AI agent...</option>
-                        <option value="pyra">Pyra — Python Data Analysis</option>
-                        <option value="rhea">Rhea — Statistical Analysis</option>
-                        <option value="terra">Terra — Geographic Intelligence</option>
+                        <option value="">Choose a specialist...</option>
+                        <option value="pyra">Pyra — Python Analysis</option>
+                        <option value="rhea">Rhea — Statistical Review</option>
+                        <option value="terra">Terra — Geographic Study</option>
                         <option value="geno">Geno — Experimental Design</option>
                         <option value="luma">Luma — Executive Reporting</option>
                     </select>
                 </div>
                 
                 <div class="form-group">
-                    <label>Dataset</label>
+                    <label>Your Dataset</label>
                     <div class="file-upload" onclick="document.getElementById('csvFile').click()">
-                        <div class="file-upload-icon">📊</div>
-                        <div class="file-upload-text">Drop CSV file here or click to browse</div>
+                        <div class="file-upload-icon">📜</div>
+                        <div class="file-upload-text">Present your CSV documents</div>
                         <input type="file" id="csvFile" accept=".csv" required onchange="updateFileName(this)">
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label>Delivery Email</label>
-                    <input type="email" id="userEmail" placeholder="your@email.com" required>
+                    <label>Correspondence Address</label>
+                    <input type="email" id="userEmail" placeholder="your@estate.com" required>
                 </div>
 
-                <button type="submit" class="submit-btn">Initiate Analysis</button>
+                <button type="submit" class="submit-btn">Commission Analysis</button>
                 
                 <div class="loading" id="loading">
-                    <p>⚡ AI agents are processing your data...</p>
+                    <p>⚜ The specialists are examining your documents...</p>
                 </div>
                 
                 <div class="result-box" id="resultBox">
                     <h3>✓ Analysis Complete</h3>
-                    <p id="resultText">Your comprehensive report has been generated.</p>
+                    <p id="resultText">Your report has been prepared and dispatched.</p>
                 </div>
             </form>
         </div>
@@ -648,82 +749,83 @@
 
     <section class="features" id="features">
         <div class="section-header">
-            <div class="section-label">Why Us</div>
-            <h2 class="section-title">The LuxAnalytica Difference</h2>
+            <span class="section-label">Our Standards</span>
+            <h2 class="section-title">The Four Pillars</h2>
         </div>
         <div class="features-grid">
             <div class="feature-card">
-                <div class="feature-number">01</div>
-                <h3>Velocity</h3>
-                <p>Analysis completed in minutes, not days. Our agents work at machine speed.</p>
+                <div class="feature-number">I</div>
+                <h3>Expedition</h3>
+                <p>Swift analysis without sacrifice to thoroughness. Time is the one commodity we cannot recover.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-number">02</div>
+                <div class="feature-number">II</div>
                 <h3>Precision</h3>
-                <p>Specialized agents for every data type. Expert-level accuracy guaranteed.</p>
+                <p>Each specialist commands their domain with expertise refined through continuous study.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-number">03</div>
-                <h3>Security</h3>
-                <p>Enterprise-grade encryption. Your data remains exclusively yours.</p>
+                <div class="feature-number">III</div>
+                <h3>Discretion</h3>
+                <p>Your affairs remain strictly confidential. Trust is the foundation of all lasting relationships.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-number">04</div>
-                <h3>Elegance</h3>
-                <p>Beautiful, presentation-ready reports delivered to your inbox.</p>
+                <div class="feature-number">IV</div>
+                <h3>Excellence</h3>
+                <p>Reports worthy of presentation to any board, committee, or publication.</p>
             </div>
         </div>
     </section>
 
     <section class="agents" id="agents">
         <div class="section-header">
-            <div class="section-label" style="color: var(--accent);">The Team</div>
-            <h2 class="section-title">Meet Your Analysts</h2>
+            <span class="section-label" style="color: var(--tan);">The Specialists</span>
+            <h2 class="section-title">Your Advisory Council</h2>
         </div>
         <div class="agents-grid">
             <div class="agent-card">
-                <div class="agent-icon">👑</div>
+                <div class="agent-icon">⚜</div>
                 <h4>Astra</h4>
-                <p>Project Director</p>
+                <p>Director</p>
             </div>
             <div class="agent-card">
                 <div class="agent-icon">🐍</div>
                 <h4>Pyra</h4>
-                <p>Python Specialist</p>
+                <p>Pythonist</p>
             </div>
             <div class="agent-card">
-                <div class="agent-icon">📈</div>
+                <div class="agent-icon">📊</div>
                 <h4>Rhea</h4>
                 <p>Statistician</p>
             </div>
             <div class="agent-card">
                 <div class="agent-icon">🌍</div>
                 <h4>Terra</h4>
-                <p>GIS Expert</p>
+                <p>Geographer</p>
             </div>
             <div class="agent-card">
-                <div class="agent-icon">🧬</div>
+                <div class="agent-icon">🔬</div>
                 <h4>Geno</h4>
-                <p>Research Design</p>
+                <p>Researcher</p>
             </div>
             <div class="agent-card">
-                <div class="agent-icon">📑</div>
+                <div class="agent-icon">📜</div>
                 <h4>Luma</h4>
-                <p>Report Curator</p>
+                <p>Scribe</p>
             </div>
         </div>
     </section>
 
     <footer>
+        <div class="footer-crest">⚜</div>
         <div class="footer-logo">LuxAnalytica</div>
-        <p>&copy; 2026 LuxAnalytica AI. All rights reserved.</p>
+        <p>Heritage Intelligence • Established MMXXVI</p>
     </footer>
 
     <script>
         function updateFileName(input) {
             const uploadText = document.querySelector('.file-upload-text');
             if (input.files && input.files[0]) {
-                uploadText.textContent = '📄 ' + input.files[0].name;
+                uploadText.textContent = '📜 ' + input.files[0].name;
             }
         }
 
@@ -749,7 +851,7 @@
                     'geno': 'Geno',
                     'luma': 'Luma'
                 };
-                resultText.textContent = `${agentNames[agent]} has completed your analysis. Results sent to ${email}.`;
+                resultText.textContent = `${agentNames[agent]} has completed your analysis. The report has been dispatched to ${email}.`;
             }, 3000);
         });
     </script>
