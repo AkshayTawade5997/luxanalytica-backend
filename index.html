@@ -1,1 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LuxAnalytica AI | Premium Data Analysis</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        :root {
+            --black: #000000;
+            --white: #ffffff;
+            --gray-light: #f5f5f5;
+            --gray-medium: #888888;
+            --gray-dark: #1a1a1a;
+            --accent: #c9a962;
+            --accent-light: #e8d5a3;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--white);
+            color: var(--black);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Luxury Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 8%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--black);
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--gray-medium);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--accent);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--black);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: var(--black);
+            color: var(--white);
+            padding: 0.8rem 1.8rem;
+            border-radius: 0;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s;
+            border: 2px solid var(--black);
+        }
+
+        .nav-cta:hover {
+            background: transparent;
+            color: var(--black);
+        }
+
+        /* Luxury Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 10rem 8% 6rem;
+            background: linear-gradient(135deg, var(--white) 0%, var(--gray-light) 100%);
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: var(--black);
+            clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%);
+        }
+
+        .hero-content {
+            max-width: 600px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .hero-label::before {
+            content: '';
+            width: 40px;
+            height: 1px;
+            background: var(--accent);
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--black);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--gray-medium);
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+            max-width: 500px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .btn-primary {
+            background: var(--black);
+            color: var(--white);
+            padding: 1.2rem 2.5rem;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: all 0.4s;
+            border: 2px solid var(--black);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--accent);
+            transition: left 0.4s;
+            z-index: -1;
+        }
+
+        .btn-primary:hover::before {
+            left: 0;
+        }
+
+        .btn-primary:hover {
+            border-color: var(--accent);
+        }
+
+        .btn-text {
+            color: var(--black);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.3s;
+        }
+
+        .btn-text:hover {
+            gap: 1rem;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background: var(--black);
+            padding: 3rem 8%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--gray-medium);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 0.5rem;
+        }
+
+        /* Upload Section */
+        .upload-section {
+            padding: 8rem 8%;
+            background: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--black);
+        }
+
+        .upload-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: var(--gray-light);
+            padding: 4rem;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.8rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--gray-medium);
+        }
+
+        .form-group select,
+        .form-group input[type="email"] {
+            width: 100%;
+            padding: 1.2rem;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            background: var(--white);
+            color: var(--black);
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            transition: border-color 0.3s;
+        }
+
+        .form-group select:focus,
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .file-upload {
+            border: 2px dashed rgba(0, 0, 0, 0.2);
+            padding: 3rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: var(--white);
+        }
+
+        .file-upload:hover {
+            border-color: var(--accent);
+            background: rgba(201, 169, 98, 0.05);
+        }
+
+        .file-upload-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .file-upload-text {
+            color: var(--gray-medium);
+            font-size: 0.9rem;
+        }
+
+        .file-upload input {
+            display: none;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: var(--black);
+            color: var(--white);
+            padding: 1.3rem;
+            border: none;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.4s;
+            margin-top: 1rem;
+        }
+
+        .submit-btn:hover {
+            background: var(--accent);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 8rem 8%;
+            background: var(--gray-light);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 3rem 2rem;
+            text-align: center;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all 0.4s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--accent);
+            opacity: 0.3;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--black);
+        }
+
+        .feature-card p {
+            font-size: 0.9rem;
+            color: var(--gray-medium);
+            line-height: 1.7;
+        }
+
+        /* Agents Section */
+        .agents {
+            padding: 8rem 8%;
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .agents .section-title {
+            color: var(--white);
+        }
+
+        .agents-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .agent-card {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s;
+        }
+
+        .agent-card:hover {
+            background: rgba(201, 169, 98, 0.1);
+            border-color: var(--accent);
+        }
+
+        .agent-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .agent-card h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--white);
+        }
+
+        .agent-card p {
+            font-size: 0.8rem;
+            color: var(--gray-medium);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--white);
+            padding: 4rem 8%;
+            text-align: center;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        footer p {
+            color: var(--gray-medium);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .agents-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .hero::before {
+                display: none;
+            }
+            .features-grid,
+            .agents-grid {
+                grid-template-columns: 1fr;
+            }
+            .stats-bar {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+
+        /* Loading & Results */
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+            color: var(--accent);
+        }
+
+        .loading.show {
+            display: block;
+        }
+
+        .result-box {
+            display: none;
+            background: rgba(201, 169, 98, 0.1);
+            border: 1px solid var(--accent);
+            padding: 2rem;
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .result-box.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">Lux<span>Analytica</span></div>
+        <div class="nav-links">
+            <a href="#analyze">Analyze</a>
+            <a href="#features">Features</a>
+            <a href="#agents">Agents</a>
+            <a href="#analyze" class="nav-cta">Get Started</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-label">Premium AI Analytics</div>
+            <h1>Intelligence That Never Sleeps</h1>
+            <p>Six elite AI agents working in harmony to transform your raw data into actionable insights. Experience the future of analysis.</p>
+            <div class="hero-buttons">
+                <a href="#analyze" class="btn-primary">Begin Analysis</a>
+                <a href="#features" class="btn-text">Explore Features →</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="stats-bar">
+        <div class="stat-item">
+            <div class="stat-number">6</div>
+            <div class="stat-label">AI Agents</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">24/7</div>
+            <div class="stat-label">Availability</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Accuracy</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">0s</div>
+            <div class="stat-label">Downtime</div>
+        </div>
+    </div>
+
+    <section class="upload-section" id="analyze">
+        <div class="section-header">
+            <div class="section-label">Start Now</div>
+            <h2 class="section-title">Upload Your Dataset</h2>
+        </div>
+        <div class="upload-container">
+            <form id="analysisForm">
+                <div class="form-group">
+                    <label>Select Your Specialist</label>
+                    <select id="agentSelect" required>
+                        <option value="">Choose an AI agent...</option>
+                        <option value="pyra">Pyra — Python Data Analysis</option>
+                        <option value="rhea">Rhea — Statistical Analysis</option>
+                        <option value="terra">Terra — Geographic Intelligence</option>
+                        <option value="geno">Geno — Experimental Design</option>
+                        <option value="luma">Luma — Executive Reporting</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Dataset</label>
+                    <div class="file-upload" onclick="document.getElementById('csvFile').click()">
+                        <div class="file-upload-icon">📊</div>
+                        <div class="file-upload-text">Drop CSV file here or click to browse</div>
+                        <input type="file" id="csvFile" accept=".csv" required onchange="updateFileName(this)">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Delivery Email</label>
+                    <input type="email" id="userEmail" placeholder="your@email.com" required>
+                </div>
+
+                <button type="submit" class="submit-btn">Initiate Analysis</button>
+                
+                <div class="loading" id="loading">
+                    <p>⚡ AI agents are processing your data...</p>
+                </div>
+                
+                <div class="result-box" id="resultBox">
+                    <h3>✓ Analysis Complete</h3>
+                    <p id="resultText">Your comprehensive report has been generated.</p>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="section-header">
+            <div class="section-label">Why Us</div>
+            <h2 class="section-title">The LuxAnalytica Difference</h2>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-number">01</div>
+                <h3>Velocity</h3>
+                <p>Analysis completed in minutes, not days. Our agents work at machine speed.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-number">02</div>
+                <h3>Precision</h3>
+                <p>Specialized agents for every data type. Expert-level accuracy guaranteed.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-number">03</div>
+                <h3>Security</h3>
+                <p>Enterprise-grade encryption. Your data remains exclusively yours.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-number">04</div>
+                <h3>Elegance</h3>
+                <p>Beautiful, presentation-ready reports delivered to your inbox.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="agents" id="agents">
+        <div class="section-header">
+            <div class="section-label" style="color: var(--accent);">The Team</div>
+            <h2 class="section-title">Meet Your Analysts</h2>
+        </div>
+        <div class="agents-grid">
+            <div class="agent-card">
+                <div class="agent-icon">👑</div>
+                <h4>Astra</h4>
+                <p>Project Director</p>
+            </div>
+            <div class="agent-card">
+                <div class="agent-icon">🐍</div>
+                <h4>Pyra</h4>
+                <p>Python Specialist</p>
+            </div>
+            <div class="agent-card">
+                <div class="agent-icon">📈</div>
+                <h4>Rhea</h4>
+                <p>Statistician</p>
+            </div>
+            <div class="agent-card">
+                <div class="agent-icon">🌍</div>
+                <h4>Terra</h4>
+                <p>GIS Expert</p>
+            </div>
+            <div class="agent-card">
+                <div class="agent-icon">🧬</div>
+                <h4>Geno</h4>
+                <p>Research Design</p>
+            </div>
+            <div class="agent-card">
+                <div class="agent-icon">📑</div>
+                <h4>Luma</h4>
+                <p>Report Curator</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-logo">LuxAnalytica</div>
+        <p>&copy; 2026 LuxAnalytica AI. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function updateFileName(input) {
+            const uploadText = document.querySelector('.file-upload-text');
+            if (input.files && input.files[0]) {
+                uploadText.textContent = '📄 ' + input.files[0].name;
+            }
+        }
+
+        document.getElementById('analysisForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const loading = document.getElementById('loading');
+            const resultBox = document.getElementById('resultBox');
+            const resultText = document.getElementById('resultText');
+            const agent = document.getElementById('agentSelect').value;
+            const email = document.getElementById('userEmail').value;
+            
+            loading.classList.add('show');
+            resultBox.classList.remove('show');
+            
+            setTimeout(() => {
+                loading.classList.remove('show');
+                resultBox.classList.add('show');
+                const agentNames = {
+                    'pyra': 'Pyra',
+                    'rhea': 'Rhea',
+                    'terra': 'Terra',
+                    'geno': 'Geno',
+                    'luma': 'Luma'
+                };
+                resultText.textContent = `${agentNames[agent]} has completed your analysis. Results sent to ${email}.`;
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
